@@ -12,26 +12,20 @@ for(let i=0;i<inputs.length;i++){
 	   inputs[i].addEventListener('keydown',(e)=>{
 		   if(e.key==='Backspace'){
 			     e.preventDefault();
-               if (i === 0) {
+   if (inputs[i].value !== "") {
                 inputs[i].value = "";
+                return;
+            }
+
+            // Current field is empty
+            if (i > 0) {
+                inputs[i - 1].value = "";
+                inputs[i - 1].focus();
+            } 
+            else {
+                // First field
                 inputs[i].focus();
-                return;
             }
-
-            // Current field me value hai
-            if (inputs[i].value !== "") {
-                inputs[i].value = "";
-                return;
-            }
-
-            // Current field empty hai -> previous par jao
-            inputs[i - 1].focus();
-            }
-
-            // warna previous field par jao
-            inputs[i - 1].focus();
-            
-
 	   })
 }
 
