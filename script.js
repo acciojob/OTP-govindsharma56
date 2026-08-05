@@ -11,11 +11,22 @@ for(let i=0;i<inputs.length;i++){
 for(let i=0;i<inputs.length;i++){
 	   inputs[i].addEventListener('keydown',(e)=>{
 		   if(e.key==='Backspace'){
-			    inputs[i].value='';
-			   if (i > 0) {
-    inputs[i - 1].focus();
-          }
-		   } 
+			     e.preventDefault();
+
+            // Agar current input me value hai to usko clear karo
+            if (inputs[i].value !== "") {
+                inputs[i].value = "";
+                return;
+            }
+                 let j = i - 1;
+
+            while (j >= 0 && inputs[j].value === "") {
+                j--;
+            }
+			    if (j >= 0) {
+                inputs[j].value = "";
+                inputs[j].focus();
+            }
 	   })
 }
 
