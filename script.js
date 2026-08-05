@@ -13,9 +13,11 @@ for(let i=0;i<inputs.length;i++){
 		   if(e.key==='Backspace'){
 			     e.preventDefault();
                 inputs[i].value = "";
-               if (i === 0) {
+               if (i > 0) {
+                inputs[i - 1].focus();
+            } else {
                 inputs[i].focus();
-                return;
+            }
             }
 
             // warna previous field par jao
