@@ -12,13 +12,13 @@ for(let i=0;i<inputs.length;i++){
 	   inputs[i].addEventListener('keydown',(e)=>{
 		   if(e.key==='Backspace'){
 			     e.preventDefault();
-			     if (i === 0) {
                 inputs[i].value = "";
-                inputs[i].focus();
-                return;
-            }
-                 inputs[i].value='';
+            if (i > 0) {
                 inputs[i - 1].focus();
+            } else {
+           
+                inputs[i].focus();
+            }
             
 
 	   })
