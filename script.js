@@ -18,9 +18,23 @@ for(let i=0;i<inputs.length;i++){
             return;
         }
 
-        // Baaki inputs
-        input.value = "";
-        inputs[index - 1].focus();
+   if (inputs[i].value !== "") {
+            inputs[i].value = "";
+            return;
+        }
+
+        // Previous non-empty input dhoondo
+        let j = i - 1;
+
+        while (j >= 0 && inputs[j].value === "") {
+            j--;
+        }
+
+        // Mil gaya to usko clear karke focus karo
+        if (j >= 0) {
+            inputs[j].value = "";
+            inputs[j].focus();
+        }
 	   })
 }
 
