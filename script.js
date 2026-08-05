@@ -7,3 +7,13 @@ for(let i=0;i<inputs.length;i++){
 			}
 	   })
 }
+
+for(let i=0;i<inputs.length;i++){
+	   inputs[i].addEventListener('keydown',(e)=>{
+		   if(e.key==='Backspace'){
+			    inputs[i].value='';
+			   inputs[i-1].focus(); 
+		   } 
+	   })
+}
+
