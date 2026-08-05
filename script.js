@@ -13,8 +13,8 @@ for(let i=0;i<inputs.length;i++){
 		   if(e.key==='Backspace'){
 			     e.preventDefault();
    if (i=== 0) {
-            input.value = "";
-            input.focus();
+            input[i].value = "";
+            input[i].focus();
             return;
         }
 
